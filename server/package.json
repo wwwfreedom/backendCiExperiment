@@ -4,11 +4,12 @@
   "description": "Experts REST backend",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "db:start": "node util/db/start",
+    "start": "node lib/index.js",
+    "debug": "node index.js",
     "db:stop": "docker stop expertsdb",
     "db:rm": "docker rm expertsdb",
-    "test": "eslint src/ && node test/index.js | tap-spec"
+    "test": "eslint src/ && node test/index.js | tap-spec",
+    "postinstall": "babel src --out-dir lib"
   },
   "keywords": [
     "rest",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/yamalight/building-products-with-js#readme",
   "devDependencies": {
+    "babel-cli": "^6.14.0",
     "babel-core": "^6.11.4",
     "babel-eslint": "^6.1.2",
     "babel-preset-es2015-node": "^6.1.0",
